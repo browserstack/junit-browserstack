@@ -16,7 +16,7 @@
 * To run local tests, run `mvn test -P local`
 
 ## Notes
-* You can view your tests results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)
+* You can view your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)
 * To test on a different set of browsers, check out our [Platform Configurator](https://www.browserstack.com/automate/python#setting-os-and-browser)
 * You can export the environment variables for the Username and Access Key of your BrowserStack account. 
   ```
@@ -24,5 +24,7 @@
   export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
   ```
 
-## Requirements
-* Java 1.6+
+## Resources
+* [Documentation for writing automate test scripts in Java on BrowserStack](https://www.browserstack.com/automate/java)
+* [Customize your tests on BrowserStack Automate](https://www.browserstack.com/automate/capabilities)
+* [Browsers & Mobile Devices for Selenium Testing on BrowserStack](https://www.browserstack.com/list-of-browsers-and-platforms?product=automate) 
