@@ -16,6 +16,6 @@ public class SingleTest extends BrowserStackJUnitTest {
     element.submit();
     Thread.sleep(5000);
 
-    assertEquals("BrowserStack - Google Search", driver.getTitle());
+    assertTrue(driver.getTitle().matches("(?i)BrowserStack - Google Search"));
   }
 }
