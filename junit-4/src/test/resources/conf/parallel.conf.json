@@ -4,7 +4,7 @@
   "key": "BROWSERSTACK_ACCESS_KEY",
 
   "capabilities": {
-    "build": "browserstack-build-1",
+    "build": "junit-browserstack",
     "name": "parallel_test",
     "browserstack.debug": true
   },
@@ -22,6 +22,12 @@
     },
     {
       "browser": "Internet Explorer"
+    },
+    {
+      "device": "Samsung Galaxy S21"
+    },
+    {
+      "device": "iPhone 12"
     }
   ]
 }

@@ -4,13 +4,13 @@
   "key": "BROWSERSTACK_ACCESS_KEY",
 
   "capabilities": {
-    "build": "browserstack-build-1",
+    "build": "junit-browserstack",
     "name": "local_test",
     "browserstack.debug": true,
     "browserstack.local": true
   },
 
   "environments": [{
-    "browser": "chrome"
+    "browser": "edge"
   }]
 }
