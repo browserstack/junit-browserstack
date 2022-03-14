@@ -1,14 +1,7 @@
 package utils;
 
 import com.browserstack.local.Local;
-import org.junit.jupiter.api.extension.AfterAllCallback;
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
-import runners.BstackRunner;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.HashMap;
 import java.util.Map;
 
 public class SetupLocalTesting {
@@ -53,7 +46,7 @@ public class SetupLocalTesting {
                     local.stop();
                 }
             } catch (Exception e) {
-                System.out.println("Error encountered while stopping BrowserStack Local { }"+e);
+                System.out.println("Error encountered while stopping BrowserStack Local { }" + e);
             }
         }
     }

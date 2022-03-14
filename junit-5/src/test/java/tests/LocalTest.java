@@ -1,9 +1,9 @@
 package tests;
 
-import utils.MarkSessionStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import runners.WebDriverTest;
+import utils.MarkSessionStatus;
 
 public class LocalTest {
 
@@ -15,13 +15,11 @@ public class LocalTest {
             String validateContent = driver.findElement(By.cssSelector("body")).getText();
             if (validateContent.contains("Up and running")) {
                 sessionStatus.markTestStatus("passed", "Local content validated!", driver);
-            }
-            else {
+            } else {
                 sessionStatus.markTestStatus("failed", "Local content not validated!", driver);
             }
-        }
-        catch (Exception e){
-            sessionStatus.markTestStatus("failed", "There was some issue!",driver);
+        } catch (Exception e) {
+            sessionStatus.markTestStatus("failed", "There was some issue!", driver);
             System.out.println(e.getMessage());
         }
         driver.quit();

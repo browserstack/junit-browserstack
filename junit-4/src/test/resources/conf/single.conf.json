@@ -2,14 +2,14 @@
   "server": "hub-cloud.browserstack.com",
   "user": "BROWSERSTACK_USERNAME",
   "key": "BROWSERSTACK_ACCESS_KEY",
-
   "capabilities": {
     "build": "junit-browserstack",
     "name": "single_test",
     "browserstack.debug": true
   },
-
-  "environments": [{
-    "browser": "chrome"
-  }]
+  "environments": [
+    {
+      "browser": "chrome"
+    }
+  ]
 }
