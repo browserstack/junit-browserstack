@@ -1,6 +1,4 @@
 package tests;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import runners.BstackRunner;
 import utils.MarkSessionStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +11,6 @@ public class SingleTest {
 
     @WebDriverTest
     void singleTest(WebDriver driver) {
-
         MarkSessionStatus sessionStatus = new MarkSessionStatus();
         try {
             driver.get("https://bstackdemo.com/");
@@ -26,10 +23,12 @@ public class SingleTest {
             final String product_in_cart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\'__next\']/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]"))).getText();
             if (product_name.equals(product_in_cart)) {
                 sessionStatus.markTestStatus("passed", "Product has been successfully added to the cart!",driver);
-            }else{
+            }
+            else{
                 sessionStatus.markTestStatus("failed", "There was some issue!", driver);
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             sessionStatus.markTestStatus("failed", "There was some issue!",driver);
             System.out.println("Exception: " + e.getMessage());
         }
@@ -37,8 +36,8 @@ public class SingleTest {
     }
 
     //@WebDriverTest
-    void googleTest(WebDriver driver) {
-        driver.get("https://google.com/");
+    void bstackTest(WebDriver driver) {
+        driver.get("https://bstackdemo.com/");
         System.out.println("Test 1: " + Thread.currentThread().getName());
         driver.quit();
     }

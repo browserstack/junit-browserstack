@@ -13,11 +13,10 @@ public class LocalTest extends BrowserStackJUnitTest {
     SessionId sessionId = ((RemoteWebDriver) driver).getSessionId();
     try{
       driver.get("http://bs-local.com:45691/check");
-
       assertTrue(driver.getPageSource().contains("Up and running"));
       mark(sessionId, "passed", "Local content validated!");
-
-    }catch (AssertionError e){
+    }
+    catch (AssertionError e){
       mark(sessionId, "failed","Local content not validated!");
       System.out.println("Exception: "+e);
     }

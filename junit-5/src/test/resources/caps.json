@@ -1,7 +1,7 @@
 {
   "server": "hub-cloud.browserstack.com",
-  "username": "BROWSERSTACK_USERNAME",
-  "accesskey": "BROWSERSTACK_ACCESS_KEY",
+  "user": "BROWSERSTACK_USERNAME",
+  "key": "BROWSERSTACK_ACCESS_KEY",
   "tests": {
     "single": {
       "common_caps": {

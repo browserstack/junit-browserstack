@@ -28,11 +28,11 @@ public class BstackRunner implements TestTemplateInvocationContextProvider {
             server = (String) mainConfig.get("server");
             username = System.getenv("BROWSERSTACK_USERNAME");
             if(username == null){
-                username = (String) mainConfig.get("username");
+                username = (String) mainConfig.get("user");
             }
             accesskey = System.getenv("BROWSERSTACK_ACCESS_KEY");
             if(accesskey == null){
-                accesskey = (String) mainConfig.get("accesskey");
+                accesskey = (String) mainConfig.get("key");
             }
         }catch (Exception e){
             System.out.println(e.getMessage());
