@@ -8,12 +8,15 @@ import org.openqa.selenium.remote.SessionId;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 import static org.junit.Assert.assertTrue;
 
 public class SingleTest extends BrowserStackJUnitTest {
 
     @Test
-    public void test() throws Exception {
+    public void test() throws URISyntaxException, IOException {
         SessionId sessionId = ((RemoteWebDriver) driver).getSessionId();
         try {
             driver.get("https://bstackdemo.com/");
@@ -26,9 +29,9 @@ public class SingleTest extends BrowserStackJUnitTest {
             final String product_in_cart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='__next']/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]"))).getText();
             assertTrue(product_name.matches(product_in_cart));
             mark(sessionId, "passed", "Product has been successfully added to the cart!");
-        } catch (AssertionError e) {
+        } catch (Throwable t) {
             mark(sessionId, "failed", "There was some issue!");
-            System.out.println("Exception: " + e);
+            System.out.println("Exception: " + t);
         }
     }
 }
