@@ -28,12 +28,12 @@ public class BstackRunner implements TestTemplateInvocationContextProvider {
     private HashMap<String, String> commonCapsMap;
 
     public BstackRunner() {
-        this.username = setupCredentials()[0];
-        this.accesskey = setupCredentials()[1];
-        this.server = setupCredentials()[2];
+        this.username = setupCredsAndServer().get("username");
+        this.accesskey = setupCredsAndServer().get("accesskey");
+        this.server = setupCredsAndServer().get("server");
     }
 
-    public String[] setupCredentials() {
+    public HashMap<String, String> setupCredsAndServer() {
         try {
             JSONParser parse = new JSONParser();
             mainConfig = (JSONObject) parse.parse(new FileReader("src/test/resources/caps.json"));
@@ -49,7 +49,11 @@ public class BstackRunner implements TestTemplateInvocationContextProvider {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return (new String[]{username, accesskey, server});
+        HashMap<String, String> creds = new HashMap();
+        creds.put("username", username);
+        creds.put("accesskey", accesskey);
+        creds.put("server", server);
+        return creds;
     }
 
     @Override

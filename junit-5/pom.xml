@@ -14,6 +14,7 @@
         <selenium-java>3.141.59</selenium-java>
         <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
         <browserstack-local-java>1.0.6</browserstack-local-java>
+        <httpclient>4.5.13</httpclient>
         <parallel.count>5</parallel.count>
         <tests.single>**/tests.SingleTest.java</tests.single>
         <tests.local>**/tests.LocalTest.java</tests.local>
@@ -51,6 +52,11 @@
             <groupId>com.browserstack</groupId>
             <artifactId>browserstack-local-java</artifactId>
             <version>${browserstack-local-java}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient}</version>
         </dependency>
     </dependencies>
     <profiles>
