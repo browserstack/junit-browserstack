@@ -10,7 +10,7 @@
   },
   "environments": [
     {
-      "browser": "edge"
+      "browser": "chrome"
     }
   ]
 }
