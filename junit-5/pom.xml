@@ -73,7 +73,7 @@
                                 <include>${tests.single}</include>
                             </includes>
                             <systemPropertyVariables>
-                                <config>single</config>
+                                <config>single.conf.json</config>
                             </systemPropertyVariables>
                             <testFailureIgnore>false</testFailureIgnore>
                         </configuration>
@@ -94,7 +94,7 @@
                                 <include>${tests.local}</include>
                             </includes>
                             <systemPropertyVariables>
-                                <config>local</config>
+                                <config>local.conf.json</config>
                             </systemPropertyVariables>
                             <testFailureIgnore>false</testFailureIgnore>
                         </configuration>
@@ -115,7 +115,7 @@
                                 <include>${tests.single}</include>
                             </includes>
                             <systemPropertyVariables>
-                                <config>parallel</config>
+                                <config>parallel.conf.json</config>
                             </systemPropertyVariables>
                             <properties>
                                 <configurationParameters>
