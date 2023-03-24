@@ -32,6 +32,9 @@ public class BrowserStackJUnitTest {
     private static JSONObject config;
     public WebDriver driver;
     public HashMap<String, String> bstackOptions;
+    private static Object lock = new Object();
+    private static Integer parallels = 0;
+
     @Parameter(value = 0)
     public int taskID;
     private Local bsLocal;
@@ -119,21 +122,25 @@ public class BrowserStackJUnitTest {
         }
         JSONObject localCaps = new JSONObject(bstackOptions);
 
-        if (capabilities.getCapability("bstack:options") != null
-                && localCaps.get("local") != null
-                && ((Boolean) localCaps.get("local")) == true) {
-            bsLocal = new Local();
-            Map<String, String> options = new HashMap<String, String>();
-            options.put("key", accessKey);
-            bsLocal.start(options);
+        synchronized (lock) {
+            parallels++;
+            if (capabilities.getCapability("bstack:options") != null
+                    && localCaps.get("local") != null
+                    && ((Boolean) localCaps.get("local")) == true) {
+                bsLocal = new Local();
+                Map<String, String> options = new HashMap<String, String>();
+                options.put("key", accessKey);
+                bsLocal.start(options);
+            }
         }
     }
 
     @After
     public void tearDown() throws Exception {
-        driver.quit();
-        if (bsLocal != null) {
-            bsLocal.stop();
+        synchronized (lock){
+            parallels--;
+            driver.quit();
+            if (bsLocal != null && parallels == 0) bsLocal.stop();
         }
     }
 }
