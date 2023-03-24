@@ -124,13 +124,17 @@ public class BrowserStackJUnitTest {
 
         synchronized (lock) {
             parallels++;
-            if (capabilities.getCapability("bstack:options") != null
+            if ((bsLocal == null || !bsLocal.isRunning()) && capabilities.getCapability("bstack:options") != null
                     && localCaps.get("local") != null
                     && ((Boolean) localCaps.get("local")) == true) {
                 bsLocal = new Local();
                 Map<String, String> options = new HashMap<String, String>();
                 options.put("key", accessKey);
-                bsLocal.start(options);
+                try {
+                    bsLocal.start(options);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         }
     }
