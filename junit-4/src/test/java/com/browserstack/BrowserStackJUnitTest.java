@@ -71,7 +71,7 @@ public class BrowserStackJUnitTest {
         JSONArray envs = (JSONArray) config.get("environments");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserstack.source", "junit-4:sample-selenium-3:v1.0");
+        capabilities.setCapability("browserstack.source", "junit-4:sample-selenium-3:v1.1");
         Map<String, String> envCapabilities = (Map<String, String>) envs.get(taskID);
         Iterator it = envCapabilities.entrySet().iterator();
         while (it.hasNext()) {
