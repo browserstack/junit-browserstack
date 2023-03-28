@@ -99,7 +99,7 @@ public class BstackRunner implements TestTemplateInvocationContextProvider {
                     //Add more local options here, e.g. forceLocal, localIdentifier, etc.
                     SetupLocalTesting.createInstance(localOptions);
                 }
-                bstackOptions.put("source","junit-5:sample-master:v1.0");
+                bstackOptions.put("source","junit-5:sample-master:v1.1");
                 capabilities.setCapability("bstack:options", bstackOptions);
 
                 desiredCapsInvocationContexts.add(invocationContext(capabilities));
