@@ -31,6 +31,8 @@ public class BrowserStackJUnitTest {
     public static String username, accessKey;
     private static JSONObject config;
     public WebDriver driver;
+    private static Object lock = new Object();
+    private static Integer parallels = 0;
     @Parameter(value = 0)
     public int taskID;
     private Local l;
@@ -69,7 +71,7 @@ public class BrowserStackJUnitTest {
         JSONArray envs = (JSONArray) config.get("environments");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserstack.source", "junit-4:sample-selenium-3:v1.0");
+        capabilities.setCapability("browserstack.source", "junit-4:sample-selenium-3:v1.1");
         Map<String, String> envCapabilities = (Map<String, String>) envs.get(taskID);
         Iterator it = envCapabilities.entrySet().iterator();
         while (it.hasNext()) {
@@ -96,11 +98,18 @@ public class BrowserStackJUnitTest {
             accessKey = (String) config.get("key");
         }
 
-        if (capabilities.getCapability("browserstack.local") != null && capabilities.getCapability("browserstack.local") == "true") {
-            l = new Local();
-            Map<String, String> options = new HashMap<String, String>();
-            options.put("key", accessKey);
-            l.start(options);
+        synchronized (lock) {
+            parallels++;
+            if ((l == null || !l.isRunning()) && capabilities.getCapability("browserstack.local") != null && capabilities.getCapability("browserstack.local") == "true") {
+                l = new Local();
+                Map<String, String> options = new HashMap<String, String>();
+                options.put("key", accessKey);
+                try {
+                    l.start(options);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
         }
 
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@" + config.get("server") + "/wd/hub"), capabilities);
@@ -108,7 +117,10 @@ public class BrowserStackJUnitTest {
 
     @After
     public void tearDown() throws Exception {
-        driver.quit();
-        if (l != null) l.stop();
+        synchronized (lock){
+            parallels--;
+            driver.quit();
+            if (l != null && parallels == 0) l.stop();
+        }
     }
 }
