@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import runners.BstackRunner;
 
 
-public class LocalTest extends BstackRunner {
+public class BStackLocalTest extends BstackRunner {
 
     @Test
     void localTest() {

@@ -75,7 +75,7 @@
                 </dependencies>
                 <configuration>
                     <includes>
-                        <include>com/browserstack/SampleTest.java</include>
+                        <include>com/browserstack/BStackSampleTest.java</include>
                     </includes>
                     <argLine>
                         -javaagent:${com.browserstack:browserstack-java-sdk:jar}
@@ -87,7 +87,7 @@
 
     <profiles>
         <profile>
-            <id>sample</id>
+            <id>sample-test</id>
             <build>
                 <plugins>
                     <plugin>
@@ -95,7 +95,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <includes>
-                                <include>com/browserstack/SampleTest.java</include>
+                                <include>com/browserstack/BStackSampleTest.java</include>
                             </includes>
                             <argLine>
                                 -javaagent:${com.browserstack:browserstack-java-sdk:jar}
@@ -107,7 +107,7 @@
         </profile>
 
         <profile>
-            <id>local</id>
+            <id>sample-local-test</id>
             <build>
                 <plugins>
                     <plugin>
@@ -115,7 +115,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <includes>
-                                <include>com/browserstack/LocalTest.java</include>
+                                <include>com/browserstack/BStackLocalTest.java</include>
                             </includes>
                             <argLine>
                                 -javaagent:${com.browserstack:browserstack-java-sdk:jar}
