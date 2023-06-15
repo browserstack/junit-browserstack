@@ -10,7 +10,7 @@ import java.time.Duration;
 
 import static org.junit.Assert.assertTrue;
 
-public class SampleTest extends BrowserStackJUnitTest {
+public class BStackSampleTest extends BrowserStackJUnitTest {
 
     @Test
     public void test() {

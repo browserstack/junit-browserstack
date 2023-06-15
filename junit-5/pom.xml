@@ -13,8 +13,8 @@
         <selenium-java>4.1.4</selenium-java>
         <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
         <httpclient>4.5.13</httpclient>
-        <tests.single>**/tests.SingleTest.java</tests.single>
-        <tests.local>**/tests.LocalTest.java</tests.local>
+        <tests.sample>**/tests.BStackSampleTest.java</tests.sample>
+        <tests.local>**/tests.BStackLocalTest.java</tests.local>
     </properties>
     <dependencies>
         <dependency>
@@ -77,7 +77,7 @@
                 <version>${maven-surefire-plugin}</version>
                 <configuration>
                     <includes>
-                        <include>${tests.single}</include>
+                        <include>${tests.sample}</include>
                     </includes>
                     <argLine>
                         -javaagent:${com.browserstack:browserstack-java-sdk:jar}
@@ -89,7 +89,7 @@
     </build>
     <profiles>
         <profile>
-            <id>single</id>
+            <id>sample-test</id>
             <build>
                 <plugins>
                     <plugin>
@@ -98,7 +98,7 @@
                         <version>3.0.0-M5</version>
                         <configuration>
                             <includes>
-                                <include>${tests.single}</include>
+                                <include>${tests.sample}</include>
                             </includes>
                             <argLine>
                                 -javaagent:${com.browserstack:browserstack-java-sdk:jar}
@@ -110,7 +110,7 @@
             </build>
         </profile>
         <profile>
-            <id>local</id>
+            <id>sample-local-test</id>
             <build>
                 <plugins>
                     <plugin>
