@@ -75,7 +75,7 @@
                 </dependencies>
                 <configuration>
                     <includes>
-                        <include>com/browserstack/SampleTest.java</include>
+                        <include>com/browserstack/BStackSampleTest.java</include>
                     </includes>
                     <argLine>
                         -javaagent:${com.browserstack:browserstack-java-sdk:jar}
@@ -87,7 +87,7 @@
 
     <profiles>
         <profile>
-            <id>sample-test</id>
+            <id>sample</id>
             <build>
                 <plugins>
                     <plugin>
@@ -107,7 +107,7 @@
         </profile>
 
         <profile>
-            <id>sample-local-test</id>
+            <id>local</id>
             <build>
                 <plugins>
                     <plugin>

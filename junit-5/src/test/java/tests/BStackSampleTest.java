@@ -13,7 +13,7 @@ import java.time.Duration;
 public class BStackSampleTest extends BstackRunner {
 
     @Test
-    void sampleTest() {
+    void singleTest() {
         driver.get("https://bstackdemo.com/");
         final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.titleIs("StackDemo"));
