@@ -77,7 +77,7 @@
                 <version>${maven-surefire-plugin}</version>
                 <configuration>
                     <includes>
-                        <include>${tests.sample}</include>
+                        <include>${tests.single}</include>
                     </includes>
                     <argLine>
                         -javaagent:${com.browserstack:browserstack-java-sdk:jar}
