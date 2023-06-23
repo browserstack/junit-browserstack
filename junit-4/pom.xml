@@ -87,7 +87,7 @@
 
     <profiles>
         <profile>
-            <id>sample-test</id>
+            <id>sample</id>
             <build>
                 <plugins>
                     <plugin>
@@ -107,7 +107,7 @@
         </profile>
 
         <profile>
-            <id>sample-local-test</id>
+            <id>local</id>
             <build>
                 <plugins>
                     <plugin>
