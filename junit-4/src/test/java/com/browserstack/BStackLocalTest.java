@@ -7,7 +7,7 @@ import java.net.URISyntaxException;
 
 import static org.junit.Assert.assertTrue;
 
-public class LocalTest extends BrowserStackJUnitTest {
+public class BStackLocalTest extends BrowserStackJUnitTest {
 
     @Test
     public void test() {

@@ -10,7 +10,7 @@ import runners.BstackRunner;
 
 import java.time.Duration;
 
-public class SingleTest extends BstackRunner {
+public class BStackSampleTest extends BstackRunner {
 
     @Test
     void singleTest() {
