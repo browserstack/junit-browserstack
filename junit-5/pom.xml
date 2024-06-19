@@ -13,7 +13,6 @@
         <selenium-java>4.1.4</selenium-java>
         <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
         <httpclient>4.5.13</httpclient>
-        <snakeyaml.version>2.2</snakeyaml.version>
         <tests.single>**/tests.BStackSampleTest.java</tests.single>
         <tests.local>**/tests.BStackLocalTest.java</tests.local>
     </properties>
@@ -50,11 +49,6 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>${httpclient}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>${snakeyaml.version}</version>
         </dependency>
         <dependency>
             <groupId>com.browserstack</groupId>
