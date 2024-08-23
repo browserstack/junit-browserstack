@@ -9,7 +9,6 @@ dependencies {
     implementation 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
     implementation 'org.junit.platform:junit-platform-console:1.8.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.22.0'
-    implementation 'com.browserstack:browserstack-local-java:1.0.6'
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
     implementation 'org.yaml:snakeyaml:2.2'
     implementation 'com.browserstack:browserstack-java-sdk:latest.release'
