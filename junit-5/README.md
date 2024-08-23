@@ -39,11 +39,15 @@ This repository uses the BrowserStack SDK to run tests on BrowserStack. Follow t
   * Fetch Artifact Information and add `jvmArgs` property in tasks *SingleTest* and *LocalTest* :
   ```
   def browserstackSDKArtifact = configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.find { it.name == 'browserstack-java-sdk' }
-  
+  tasks.withType(Test).configureEach { task ->
+    browserstackSDKArtifact?.file?.with {
+        task.systemProperties = System.properties
+        task.jvmArgs += "-javaagent:$it"
+    }
+  }
   task single(type: Test) {
     dependsOn cleanTest
     include '**/*BStackSampleTest.*'
-    jvmArgs "-javaagent:${browserstackSDKArtifact.file}"
     useJUnitPlatform()
   }
   ```
