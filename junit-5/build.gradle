@@ -16,6 +16,8 @@ version = '1.0-SNAPSHOT'
 description = 'junit-browserstack'
 sourceCompatibility = '1.8'
 
+def browserstackSDKArtifact = configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.find { it.name == 'browserstack-java-sdk' }
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
@@ -24,22 +26,16 @@ tasks.withType(Test) {
     systemProperties = System.properties
 }
 
-tasks.withType(Test).configureEach { task ->
-    doFirst {
-        configurations.testRuntimeClasspath
-                ?.find { it.name.startsWith("browserstack-java-sdk") }
-                ?.with { task.jvmArgs += "-javaagent:$it" }
-    }
-}
-
 task single(type: Test) {
     dependsOn cleanTest
     include '**/*BStackSampleTest.*'
+    jvmArgs += "-javaagent:${browserstackSDKArtifact.file}"
     useJUnitPlatform()
 }
 
 task local(type: Test) {
     dependsOn cleanTest
     include '**/*BStackLocalTest.*'
+    jvmArgs += "-javaagent:${browserstackSDKArtifact.file}"
     useJUnitPlatform()
 }
