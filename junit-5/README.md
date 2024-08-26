@@ -5,6 +5,7 @@ Master branch contains **Selenium 4 - W3C protocol** samples, for **Selenium 3**
 <a href="https://junit.org/junit5/"><img src="https://camo.githubusercontent.com/abbaedce4b226ea68b0fd43521472b0b146d5ed57956116f69752f43e7ddd7d8/68747470733a2f2f6a756e69742e6f72672f6a756e6974352f6173736574732f696d672f6a756e6974352d6c6f676f2e706e67" width="40" height="40" ></a>
 
 ## Using Maven
+
 ### Setup
 * Clone the repo
 * Install dependencies `mvn install`
@@ -15,6 +16,7 @@ Master branch contains **Selenium 4 - W3C protocol** samples, for **Selenium 3**
 * To run local tests, run `mvn test -P local`
 
 Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
+
 ## Using Gradle
 
 ### Prerequisites
@@ -39,15 +41,11 @@ This repository uses the BrowserStack SDK to run tests on BrowserStack. Follow t
   * Fetch Artifact Information and add `jvmArgs` property in tasks *SingleTest* and *LocalTest* :
   ```
   def browserstackSDKArtifact = configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.find { it.name == 'browserstack-java-sdk' }
-  tasks.withType(Test).configureEach { task ->
-    browserstackSDKArtifact?.file?.with {
-        task.systemProperties = System.properties
-        task.jvmArgs += "-javaagent:$it"
-    }
-  }
+  
   task single(type: Test) {
     dependsOn cleanTest
     include '**/*BStackSampleTest.*'
+    jvmArgs += "-javaagent:${browserstackSDKArtifact.file}"
     useJUnitPlatform()
   }
   ```
