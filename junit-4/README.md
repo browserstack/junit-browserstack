@@ -5,16 +5,55 @@
 
 ![JUnit](http://junit.org/junit4/images/junit-logo.png)
 
-## Setup
+## Using Maven
+
+### Setup
 * Clone the repo
 * Install dependencies `mvn install`
 * Update `browserstack.yml` files inside the root directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings). 
 
-## Running your tests
+### Running your tests
 * To run a parallel test, run `mvn test -P sample`
 * To run local tests, set `browserStackLocal: true` in `browserstack.yml` and  run `mvn test -P local`
 
  Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
+
+
+## Using Gradle
+
+### Prerequisites
+- If using Gradle, Java v9+ is required.
+
+### Setup
+* Clone the repo
+* Update `browserstack.yml` files inside the root directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings).
+
+### Running your tests
+* To run a parallel test, run `gradle sample`
+* To run local tests, set `browserStackLocal: true` in `browserstack.yml` and  run `gradle local`
+
+Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
+
+### Integrate your test suite
+
+This repository uses the BrowserStack SDK to run tests on BrowserStack. Follow the steps below to install the SDK in your test suite and run tests on BrowserStack:
+
+* Following are the changes required in `build.gradle` -
+  * Add `implementation 'com.browserstack:browserstack-java-sdk:latest.release'` in dependencies
+  * Fetch Artifact Information and add `jvmArgs` property in tasks *Sample* and *Local* :
+  ```
+  def browserstackSDKArtifact = configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.find { it.name == 'browserstack-java-sdk' }
+  
+  task sample(type: Test) {
+    useJUnit() {
+        dependsOn cleanTest
+        include '**/*BStackSampleTest.*'
+        jvmArgs += "-javaagent:${browserstackSDKArtifact.file}"
+    }
+  }
+  ```
+
+* Install dependencies and run the test `gradle sample`
 
 ## Notes
 * You can view your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)
