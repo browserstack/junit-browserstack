@@ -29,8 +29,8 @@
 * Update `browserstack.yml` files inside the root directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings).
 
 ### Running your tests
-* To run a parallel test, run `gradle sample`
-* To run local tests, set `browserStackLocal: true` in `browserstack.yml` and  run `gradle local`
+* To run a parallel test, run `gradle sampleTest`
+* To run local tests, set `browserStackLocal: true` in `browserstack.yml` and  run `gradle sampleLocalTest`
 
 Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
@@ -44,7 +44,7 @@ This repository uses the BrowserStack SDK to run tests on BrowserStack. Follow t
   ```
   def browserstackSDKArtifact = configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.find { it.name == 'browserstack-java-sdk' }
   
-  task sample(type: Test) {
+  task sampleTest(type: Test) {
     useJUnit() {
         dependsOn cleanTest
         include '**/*BStackSampleTest.*'
