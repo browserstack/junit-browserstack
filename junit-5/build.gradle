@@ -29,13 +29,13 @@ tasks.withType(Test).configureEach { task ->
     }
 }
 
-task single(type: Test) {
+task sampleTest(type: Test) {
     dependsOn cleanTest
     include '**/*BStackSampleTest.*'
     useJUnitPlatform()
 }
 
-task local(type: Test) {
+task sampleLocalTest(type: Test) {
     dependsOn cleanTest
     include '**/*BStackLocalTest.*'
     useJUnitPlatform()
