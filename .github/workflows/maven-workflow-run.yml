@@ -67,6 +67,14 @@ jobs:
           cd junit-4
           mvn compile
           mvn test -P local
+      - name: Run gradle task sampleTest
+        run: |
+          cd junit-4
+          gradle clean sampleTest
+      - name: Run gradle task sampleLocalTest
+        run: |
+          cd junit-4
+          gradle clean sampleLocalTest
       - name: Run mvn test for junit-5
         run: |
           cd junit-5

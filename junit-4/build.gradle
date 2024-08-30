@@ -27,14 +27,14 @@ tasks.withType(Test) {
     jvmArgs += "-javaagent:${browserstackSDKArtifact.file}"
 }
 
-task sample(type: Test) {
+task sampleTest(type: Test) {
     useJUnit() {
         dependsOn cleanTest
         include '**/*BStackSampleTest.*'
     }
 }
 
-task local(type: Test) {
+task sampleLocalTest(type: Test) {
     useJUnit() {
         dependsOn cleanTest
         include '**/*BStackLocalTest.*'
