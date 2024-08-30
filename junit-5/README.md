@@ -27,8 +27,8 @@ Understand how many parallel sessions you need by using our [Parallel Test Calcu
 - Install dependencies `gradle build`
 
 ### Running your tests
-- To run the single test, run `gradle single`
-- To run local tests, run `gradle local`
+- To run the single test, run `gradle sampleTest`
+- To run local tests, run `gradle sampleLocalTest`
 
 Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
@@ -42,7 +42,7 @@ This repository uses the BrowserStack SDK to run tests on BrowserStack. Follow t
   ```
   def browserstackSDKArtifact = configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.find { it.name == 'browserstack-java-sdk' }
   
-  task single(type: Test) {
+  task sampleTest(type: Test) {
     dependsOn cleanTest
     include '**/*BStackSampleTest.*'
     jvmArgs += "-javaagent:${browserstackSDKArtifact.file}"
