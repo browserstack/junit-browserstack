@@ -8,7 +8,7 @@ repositories { mavenCentral() }
 dependencies {
     implementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
     implementation 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
-    implementation 'org.seleniumhq.selenium:selenium-java:4.22.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.1.4'
     implementation 'com.browserstack:browserstack-java-sdk:latest.release'
 }
 
