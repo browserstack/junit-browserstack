@@ -23,3 +23,6 @@ local.log
 *.png
 *.txt
 **/logs
+bstack_*
+gradlew*
+gradle
