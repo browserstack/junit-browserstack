@@ -19,6 +19,9 @@ jobs:
       matrix:
         java: [ '8', '11', '17' ]
         os: [ 'macos-latest', 'windows-latest', 'ubuntu-latest' ]
+        exclude:
+          - java: '8'
+            os: 'macos-latest'
     name: JUnit Repo ${{ matrix.Java }} - ${{ matrix.os }} Sample
     env:
       BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
@@ -67,6 +70,14 @@ jobs:
           cd junit-4
           mvn compile
           mvn test -P local
+      - name: Run gradle task sampleTest
+        run: |
+          cd junit-4
+          gradle clean sampleTest
+      - name: Run gradle task sampleLocalTest
+        run: |
+          cd junit-4
+          gradle clean sampleLocalTest
       - name: Run mvn test for junit-5
         run: |
           cd junit-5
@@ -82,6 +93,14 @@ jobs:
           cd junit-5
           mvn compile
           mvn test -P local
+      - name: Run gradle task sampleTest
+        run: |
+          cd junit-5
+          gradle clean sampleTest
+      - name: Run gradle task sampleLocalTest
+        run: |
+          cd junit-5
+          gradle clean sampleLocalTest
       - if: always()
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: status-check-completed

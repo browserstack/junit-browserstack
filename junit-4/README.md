@@ -5,16 +5,35 @@
 
 ![JUnit](http://junit.org/junit4/images/junit-logo.png)
 
-## Setup
+## Using Maven
+
+### Setup
 * Clone the repo
 * Install dependencies `mvn install`
 * Update `browserstack.yml` files inside the root directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings). 
 
-## Running your tests
+### Running your tests
 * To run a parallel test, run `mvn test -P sample`
 * To run local tests, set `browserStackLocal: true` in `browserstack.yml` and  run `mvn test -P local`
 
  Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
+
+
+## Using Gradle
+
+### Prerequisites
+- If using Gradle, Java v9+ is required.
+
+### Setup
+* Clone the repo
+* Update `browserstack.yml` files inside the root directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings).
+
+### Running your tests
+* To run a parallel test, run `gradle sampleTest`
+* To run local tests, set `browserStackLocal: true` in `browserstack.yml` and  run `gradle sampleLocalTest`
+
+Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
+
 
 ## Notes
 * You can view your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)

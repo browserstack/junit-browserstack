@@ -4,16 +4,34 @@ Master branch contains **Selenium 4 - W3C protocol** samples, for **Selenium 3**
 <a href="https://browserstack.com"><img src="https://avatars.githubusercontent.com/u/1119453?s=200&v=4" width="40" height="40"></a>
 <a href="https://junit.org/junit5/"><img src="https://camo.githubusercontent.com/abbaedce4b226ea68b0fd43521472b0b146d5ed57956116f69752f43e7ddd7d8/68747470733a2f2f6a756e69742e6f72672f6a756e6974352f6173736574732f696d672f6a756e6974352d6c6f676f2e706e67" width="40" height="40" ></a>
 
-## Setup
+## Using Maven
+
+### Setup
 * Clone the repo
 * Install dependencies `mvn install`
 * Update `browserstack.yml` files inside the root directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings).
 
-## Running your tests
+### Running your tests
 * To run a single test, run `mvn test -P single`
 * To run local tests, run `mvn test -P local`
 
 Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
+
+## Using Gradle
+
+### Prerequisites
+- If using Gradle, Java v9+ is required.
+
+### Setup
+- Clone the repository
+- Install dependencies `gradle build`
+
+### Running your tests
+- To run the single test, run `gradle sampleTest`
+- To run local tests, run `gradle sampleLocalTest`
+
+Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
+
 
 ## Notes
 * You can view your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)
